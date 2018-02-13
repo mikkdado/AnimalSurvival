@@ -13,13 +13,16 @@
 
 <tw-storydata name="Animal Survival" startnode="1" creator="Twine" creator-version="2.2.1" ifid="96522024-AB01-4C2E-A730-D29C7BD2AA55" zoom="1" format="Harlowe" format-version="2.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
 
 </script><tw-passagedata pid="1" name="The Cave" tags="" position="1005,45" size="100,100">(set: $animal to (prompt: &quot;What are you?&quot;, &quot;bear&quot;))
 
 Time: Night
 
-You are asleep
+You are asleep.
+Next to you are three more kin.
 You hear a rustling in the bushes outside your cave.
 You:
 [[Ignore and go back to sleep.]]
@@ -66,7 +69,7 @@ You die...
 
 [[Restart|The Cave]] </tw-passagedata><tw-passagedata pid="7" name="Attack" tags="" position="655,292" size="100,100">The figure prepares to defend.
 You:
-[[Swing your one of your arms]] 
+[[Swing one of your arms]] 
 [[Body slam|You die.]]
 [[Wait]]
 (set: $counter to 5)
@@ -104,14 +107,14 @@ He lunges with his sharp stick.
 THINK FAST
 (set: $counter to 5)
 |amount&gt;[$counter] 
-[[Swing your one of your arms]]
+[[Swing one of your arms]]
 [[Body Slam|You die.]]
 [[Dodge]]
 (live: 1s)[
 	(set: $counter to it - 1)
 	(if: $counter is 0)[(go-to: &quot;You die.&quot;)]
 	(replace: ?amount)[$counter]
-	]	</tw-passagedata><tw-passagedata pid="11" name="Swing your one of your arms" tags="" position="748,600" size="100,100">Swinging you arm disarms your opponent.
+	]	</tw-passagedata><tw-passagedata pid="11" name="Swing one of your arms" tags="" position="748,600" size="100,100">With your mighty swing, your opponent loses grip of their weapon and drops it.
 Your enemy is now weapon-less.
 [[Kill your enemy]]
 [[Stare at your enemy]]
@@ -125,7 +128,7 @@ You have |amount&gt;[$counter] to make a decision!
 	]</tw-passagedata><tw-passagedata pid="12" name="Dodge" tags="" position="1188,593" size="100,100">The figure misses.
 Now&#39;s your chance!
 
-[[Swing your one of your arms]] 
+[[Swing one of your arms]] 
 [[Body Slam|You die.]] 
 (set: $counter to 5)
 You have |amount&gt;[$counter] to make a decision!
@@ -134,7 +137,7 @@ You have |amount&gt;[$counter] to make a decision!
 	(if: $counter is 0)[(go-to: &quot;You die.&quot;)]
 	(replace: ?amount)[$counter]
 	]</tw-passagedata><tw-passagedata pid="13" name="Defend" tags="" position="479,639" size="100,100">You take damage but not severely.
-[[Swing your one of your arms]] 
+[[Swing one of your arms]] 
 [[Body slam|You die.]]
 [[Defend again]]
 (set: $counter to 5)
@@ -145,7 +148,7 @@ You have |amount&gt;[$counter] to make a decision!
 	(replace: ?amount)[$counter]
 	]</tw-passagedata><tw-passagedata pid="14" name="Wait" tags="" position="545,442" size="100,100">The figure attacks you!
 
-[[Swing your one of your arms]] 
+[[Swing one of your arms]] 
 [[Body slam|You die.]]
 [[Defend]] 
 (set: $counter to 5)
@@ -155,7 +158,7 @@ You have |amount&gt;[$counter] to make a decision!
 	(if: $counter is 0)[(go-to: &quot;You die.&quot;)]
 	(replace: ?amount)[$counter]
 	]</tw-passagedata><tw-passagedata pid="15" name="Defend again" tags="" position="479,789" size="100,100">You take more damage...
-[[Fight Back|Swing your one of your arms]] 
+[[Fight Back|Swing one of your arms]] 
 [[Keep defending|You die.]]
 (set: $counter to 5)
 You have |amount&gt;[$counter] to make a decision!
@@ -163,7 +166,70 @@ You have |amount&gt;[$counter] to make a decision!
 	(set: $counter to it - 1)
 	(if: $counter is 0)[(go-to: &quot;You die.&quot;)]
 	(replace: ?amount)[$counter]
-	]</tw-passagedata><tw-passagedata pid="16" name="Kill your enemy" tags="" position="631,849" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="17" name="Stare at your enemy" tags="" position="773,828" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="18" name="Attack from behind" tags="" position="1360,401" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="19" name="Don&#39;t do anything" tags="" position="1201,470" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="20" name="He picks up his weapon" tags="" position="1077.5,729" size="100,100">The figure picks up his weapon!</tw-passagedata></tw-storydata>
+	]</tw-passagedata><tw-passagedata pid="16" name="Kill your enemy" tags="" position="631,849" size="100,100">You deliver the final blow to your enemy.
+The figure collapses.
+A pool of blood spreads.
+
+You return to your cave and continue your slumber...
+
+</tw-passagedata><tw-passagedata pid="17" name="Stare at your enemy" tags="" position="773,828" size="100,100">The two of eye make eye contact for a bit.
+The figure rushes toward their dropped weapon.
+
+[[Destroy the weapon before he reaches it!]]
+
+(set: $counter to 5)
+You have |amount&gt;[$counter] to make a decision!
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;He picks up his weapon again&quot;)]
+	(replace: ?amount)[$counter]
+	]</tw-passagedata><tw-passagedata pid="18" name="Attack from behind" tags="" position="1360,401" size="100,100">Before the figure can react, you hold them down the ground.
+The figure flails in order to escape.
+Your size and weight overpower the figure.
+
+[[Kill your enemy]]?</tw-passagedata><tw-passagedata pid="19" name="Don&#39;t do anything" tags="" position="1201,470" size="100,100">You didn&#39;t do anything.
+The figure continues to walk.
+You notice him continue walking towards your cave.
+
+[[Rush towards him|Move a little closer]] 
+[[Wait a bit more|Your family perishes]]
+</tw-passagedata><tw-passagedata pid="20" name="He picks up his weapon" tags="" position="962,712" size="100,100">The figure picks up the weapon!
+You hear the figure advancing from behind!
+[[Dodge]] 
+[[Stand still|You die.]] 
+(set: $counter to 5)
+You have |amount&gt;[$counter] to make a decision!
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;You die.&quot;)]
+	(replace: ?amount)[$counter]
+	]</tw-passagedata><tw-passagedata pid="21" name="Your family perishes" tags="" position="1405,660" size="100,100">The figure reaches the cave.
+You hear beastly cries in the distance...
+And then it stops...
+
+The cave is quiet once again,...
+...but you have an uneasy feeling...
+
+You don&#39;t move...</tw-passagedata><tw-passagedata pid="22" name="Destroy the weapon before he reaches it!" tags="" position="773,978" size="100,100">The weapon is no longer.
+The figure begins to flee.
+
+[[Kill your enemy]] 
+[[Let the figure go...]]
+</tw-passagedata><tw-passagedata pid="23" name="He picks up his weapon again" tags="" position="972.5,879.5" size="100,100">The figure reaches his weapon and begins to lunge.
+
+[[Dodge]] 
+[[Swing one of your arms]] 
+
+(set: $counter to 5)
+You have |amount&gt;[$counter] to make a decision!
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;You die.&quot;)]
+	(replace: ?amount)[$counter]
+	]</tw-passagedata><tw-passagedata pid="24" name="Let the figure go..." tags="" position="773,1128" size="100,100">You let the figure flee.
+You return to your slumber...
+
+[[The next day...|The Cave]] </tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
