@@ -14,12 +14,14 @@
 <tw-storydata name="Animal Survival" startnode="1" creator="Twine" creator-version="2.2.1" ifid="96522024-AB01-4C2E-A730-D29C7BD2AA55" zoom="1" format="Harlowe" format-version="2.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
 
 
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
 
 
-</script><tw-passagedata pid="1" name="The Cave" tags="" position="1005,45" size="100,100">(set: $animal to (prompt: &quot;What are you?&quot;, &quot;bear&quot;))
 
-Time: Night
+
+</script><tw-passagedata pid="1" name="The Cave" tags="" position="1005,45" size="100,100">Time: Night
 
 You are asleep.
 Next to you are three more kin.
@@ -29,7 +31,7 @@ You:
 [[Check it out.]]
 [[Don&#39;t move but be attentive]]
 
-(set: $counter to 5)
+(set: $counter to 20)
 You have |amount&gt;[$counter] seconds left!
 
 (live: 1s)[
@@ -72,19 +74,19 @@ You:
 [[Swing one of your arms]] 
 [[Body slam|You die.]]
 [[Wait]]
-(set: $counter to 5)
+(set: $counter to 10)
 You have |amount&gt;[$counter] to make a decision!
 (live: 1s)[
 	(set: $counter to it - 1)
-	(if: $counter is 0)[(go-to: &quot;You die.&quot;)]
+	(if: $counter is 0)[(go-to: &quot;Wait&quot;)]
 	(replace: ?amount)[$counter]
-	]</tw-passagedata><tw-passagedata pid="8" name="Wait and hide among bushes" tags="" position="925,323" size="100,100">As you are hiding, you see a mysterious figure with 4 limbs walking on its 2.  The other to limbs seem to be holding a long stick with a sharp point.
+	]</tw-passagedata><tw-passagedata pid="8" name="Wait and hide among bushes" tags="" position="925,323" size="100,100">As you are hiding, you see a mysterious figure with 4 limbs walking on its 2.  The other 2 limbs seem to be holding a long stick with a sharp point.
 
 [[Attack]] 
 [[Move a little closer]]
 [[Wait a little bit]]
 
-(set: $counter to 5)
+(set: $counter to 15)
 You have |amount&gt;[$counter] seconds to sleep.
 (live: 1s)[
 	(set: $counter to it - 1)
@@ -105,7 +107,7 @@ It snaps.
 The figure notices you.
 He lunges with his sharp stick.
 THINK FAST
-(set: $counter to 5)
+(set: $counter to 10)
 |amount&gt;[$counter] 
 [[Swing one of your arms]]
 [[Body Slam|You die.]]
@@ -119,11 +121,11 @@ Your enemy is now weapon-less.
 [[Kill your enemy]]
 [[Stare at your enemy]]
 [[Walk away|He picks up his weapon]]
-(set: $counter to 5)
+(set: $counter to 10)
 You have |amount&gt;[$counter] to make a decision!
 (live: 1s)[
 	(set: $counter to it - 1)
-	(if: $counter is 0)[(go-to: &quot;He picks up his weapon&quot;)]
+	(if: $counter is 0)[(go-to: &quot;Stare at your enemy&quot;)]
 	(replace: ?amount)[$counter]
 	]</tw-passagedata><tw-passagedata pid="12" name="Dodge" tags="" position="1188,593" size="100,100">The figure misses.
 Now&#39;s your chance!
@@ -146,7 +148,7 @@ You have |amount&gt;[$counter] to make a decision!
 	(set: $counter to it - 1)
 	(if: $counter is 0)[(go-to: &quot;You die.&quot;)]
 	(replace: ?amount)[$counter]
-	]</tw-passagedata><tw-passagedata pid="14" name="Wait" tags="" position="545,442" size="100,100">The figure attacks you!
+	]</tw-passagedata><tw-passagedata pid="14" name="Wait" tags="" position="534,445" size="100,100">The figure attacks you!
 
 [[Swing one of your arms]] 
 [[Body slam|You die.]]
@@ -177,7 +179,7 @@ The figure rushes toward their dropped weapon.
 
 [[Destroy the weapon before he reaches it!]]
 
-(set: $counter to 5)
+(set: $counter to 10)
 You have |amount&gt;[$counter] to make a decision!
 (live: 1s)[
 	(set: $counter to it - 1)
@@ -193,7 +195,13 @@ You notice him continue walking towards your cave.
 
 [[Rush towards him|Move a little closer]] 
 [[Wait a bit more|Your family perishes]]
-</tw-passagedata><tw-passagedata pid="20" name="He picks up his weapon" tags="" position="962,712" size="100,100">The figure picks up the weapon!
+(set: $counter to 10)
+You have |amount&gt;[$counter] to make a decision!
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Your family perishes&quot;)]
+	(replace: ?amount)[$counter]
+	]</tw-passagedata><tw-passagedata pid="20" name="He picks up his weapon" tags="" position="962,712" size="100,100">The figure picks up the weapon!
 You hear the figure advancing from behind!
 [[Dodge]] 
 [[Stand still|You die.]] 
@@ -215,7 +223,7 @@ The figure begins to flee.
 
 [[Kill your enemy]] 
 [[Let the figure go...]]
-</tw-passagedata><tw-passagedata pid="23" name="He picks up his weapon again" tags="" position="972.5,879.5" size="100,100">The figure reaches his weapon and begins to lunge.
+</tw-passagedata><tw-passagedata pid="23" name="He picks up his weapon again" tags="" position="972,879" size="100,100">The figure reaches his weapon and begins to lunge.
 
 [[Dodge]] 
 [[Swing one of your arms]] 
