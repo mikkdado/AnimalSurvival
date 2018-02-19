@@ -16,7 +16,13 @@
 
 
 
+
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+
 
 
 
@@ -38,7 +44,7 @@ You have |amount&gt;[$counter] seconds left!
 	(set: $counter to it - 1)
 	(if: $counter is 0)[(go-to: &quot;Ignore and go back to sleep.&quot;)]
 	(replace: ?amount)[$counter]
-]</tw-passagedata><tw-passagedata pid="2" name="Ignore and go back to sleep." tags="" position="1035,182" size="100,100">(set: $counter to 5)
+]</tw-passagedata><tw-passagedata pid="2" name="Ignore and go back to sleep." tags="" position="1052,188" size="100,100">(set: $counter to 5)
 You want to [[wake up?|Don&#39;t move but be attentive]]
 You have |amount&gt;[$counter] seconds to sleep.
 (live: 1s)[
@@ -51,10 +57,19 @@ You hear more rustling.
 
 [[Attack]] 
 [[Wait and hide among bushes]]
-</tw-passagedata><tw-passagedata pid="4" name="Don&#39;t move but be attentive" tags="" position="880,193" size="100,100">A strange figure enters your cave.
+</tw-passagedata><tw-passagedata pid="4" name="Don&#39;t move but be attentive" tags="" position="829,195" size="100,100">A strange figure enters your cave.
 
 [[Attack]]
-[[Ignore and go back to sleep.|You die.]] </tw-passagedata><tw-passagedata pid="5" name="You die." tags="" position="1205,187" size="100,100">You left yourself open...
+[[Ignore and go back to sleep.|You die.]] 
+
+(set: $counter to 10)
+You have |amount&gt;[$counter] seconds before the figure makes their move.
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;You die.&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="5" name="You die." tags="" position="1205,187" size="100,100">You left yourself open...
 
 The mysterious figure stabs you.
 
@@ -121,7 +136,7 @@ Your enemy is now weapon-less.
 [[Kill your enemy]]
 [[Stare at your enemy]]
 [[Walk away|He picks up his weapon]]
-(set: $counter to 10)
+(set: $counter to 20)
 You have |amount&gt;[$counter] to make a decision!
 (live: 1s)[
 	(set: $counter to it - 1)
@@ -168,13 +183,13 @@ You have |amount&gt;[$counter] to make a decision!
 	(set: $counter to it - 1)
 	(if: $counter is 0)[(go-to: &quot;You die.&quot;)]
 	(replace: ?amount)[$counter]
-	]</tw-passagedata><tw-passagedata pid="16" name="Kill your enemy" tags="" position="631,849" size="100,100">You deliver the final blow to your enemy.
+	]</tw-passagedata><tw-passagedata pid="16" name="Kill your enemy" tags="" position="571,1211" size="100,100">You deliver the final blow to your enemy.
 The figure collapses.
 A pool of blood spreads.
 
 You return to your cave and continue your slumber...
 
-</tw-passagedata><tw-passagedata pid="17" name="Stare at your enemy" tags="" position="773,828" size="100,100">The two of eye make eye contact for a bit.
+[[The next night...|Another day]] </tw-passagedata><tw-passagedata pid="17" name="Stare at your enemy" tags="" position="773,828" size="100,100">The two of eye make eye contact for a bit.
 The figure rushes toward their dropped weapon.
 
 [[Destroy the weapon before he reaches it!]]
@@ -218,12 +233,21 @@ And then it stops...
 The cave is quiet once again,...
 ...but you have an uneasy feeling...
 
-You don&#39;t move...</tw-passagedata><tw-passagedata pid="22" name="Destroy the weapon before he reaches it!" tags="" position="773,978" size="100,100">The weapon is no longer.
+You don&#39;t move...
+
+[[Return to your cave]]
+</tw-passagedata><tw-passagedata pid="22" name="Destroy the weapon before he reaches it!" tags="" position="773,978" size="100,100">The weapon is no longer.
 The figure begins to flee.
 
 [[Kill your enemy]] 
 [[Let the figure go...]]
-</tw-passagedata><tw-passagedata pid="23" name="He picks up his weapon again" tags="" position="972,879" size="100,100">The figure reaches his weapon and begins to lunge.
+(set: $counter to 20)
+The figure has |amount&gt;[$counter] seconds before they are completely gone...
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;He picks up his weapon again&quot;)]
+	(replace: ?amount)[$counter]
+	]</tw-passagedata><tw-passagedata pid="23" name="He picks up his weapon again" tags="" position="972,879" size="100,100">The figure reaches his weapon and begins to lunge.
 
 [[Dodge]] 
 [[Swing one of your arms]] 
@@ -234,10 +258,80 @@ You have |amount&gt;[$counter] to make a decision!
 	(set: $counter to it - 1)
 	(if: $counter is 0)[(go-to: &quot;You die.&quot;)]
 	(replace: ?amount)[$counter]
-	]</tw-passagedata><tw-passagedata pid="24" name="Let the figure go..." tags="" position="773,1128" size="100,100">You let the figure flee.
+	]</tw-passagedata><tw-passagedata pid="24" name="Let the figure go..." tags="" position="908,1012" size="100,100">You let the figure flee.
 You return to your slumber...
 
-[[The next day...|The Cave]] </tw-passagedata></tw-storydata>
+[[The next night...|The Cave]] </tw-passagedata><tw-passagedata pid="25" name="Return to your cave" tags="" position="1405,810" size="100,100">The cave is empty...
+Only a trail of blood is left...
+
+[[Rest|A new day]]
+</tw-passagedata><tw-passagedata pid="26" name="A new day" tags="" position="1403,102" size="100,100">Time: Night
+
+You are asleep.
+You are alone
+You hear a rustling in the bushes outside your cave.
+You:
+[[Ignore and go back to sleep.]]
+[[Don&#39;t move but be attentive]]
+
+(set: $counter to 20)
+You have |amount&gt;[$counter] seconds before to make a decision...
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Ignore and go back to sleep.&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="27" name="Another day" tags="" position="1104,1127" size="100,100">Time: Night
+
+You are asleep.
+Next to you are three more kin.
+You hear a rustling in the bushes outside your cave.
+Unlike yesterday, there seems to be more...
+You:
+[[Ignore and go back to sleep.|Ignore and go back to sleep2]]
+[[Check it out.|You are outnumbered]]
+
+(set: $counter to 40)
+You have |amount&gt;[$counter] seconds to make a decision
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Ignore and go back to sleep.&quot;)]
+	(replace: ?amount)[$counter]
+]</tw-passagedata><tw-passagedata pid="28" name="Ignore and go back to sleep2" tags="" position="1029,1277" size="100,100">(set: $counter to 5)
+You want to [[wake up?|You are outnumbered]]
+You have |amount&gt;[$counter] seconds to sleep.
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;You die.&quot;)]
+	(replace: ?amount)[$counter]
+	]
+</tw-passagedata><tw-passagedata pid="29" name="You are outnumbered" tags="" position="1179,1277" size="100,100">You see more two legged figures surround you.
+[[Attack|You die second version]]
+
+(set: $counter to 10)
+
+You have |amount&gt;[$counter] seconds to make a decision.
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;You die second version&quot;)]
+	(replace: ?amount)[$counter]
+	]
+</tw-passagedata><tw-passagedata pid="30" name="You die second version" tags="" position="988,1442.5" size="100,100">Your attacks are useless...
+There are to many of them...
+Their sharp sticks penetrate different parts of your body...
+You feel pain...
+...
+...
+You black out...
+
+(set: $counter to 10)
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;GAME OVER&quot;)]
+	(replace: ?amount)[$counter]
+	]
+</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
